@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Lista de Pacientes | NutriSoft {% endblock title %}
+
+{% block cuerpo %}
+
+<div class="lista_all">
+    <div class="titulo_pagina">
+        <h1>Lista de Pacientes</h1>
+    </div>
+    
+    <div class="buscar_set_input">
+        <form method="GET">{% csrf_token %}
+            <div>
+                <input type="text" placeholder="Buscar Paciente" name="paciente_buscado">
+                <input type="submit" class="btn_buscar" value="Buscar">
+            </div>
+        </form>
+    </div>
+    
+    <div class="buscar_set">
+        <form method="POST">{% csrf_token %}
+    
+            <div class="overflow">
+                <table class="tabla_listas_ch">
+                    <thead>
+                        <tr class="thead_set disable-select">
+                            <th>Seleccionar</th>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Sexo</th>
+                            <th>Fecha Nacimiento</th>
+                            <th>Escolaridad</th>
+                            <th>Tipo Sangre</th>
+                            <th>Estado Civil</th>
+                        </tr>
+                    </thead>
+                    {% for paciente in lista_pacientes %}
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="pacientes_marcados" value="{{ paciente.id }}"></td>
+                                <td onclick="location.href='{% url 'pacientes:consulta_pacientes' pk=paciente.codigo %}'">{{ paciente.codigo }}</td>
+                                <td onclick="location.href='{% url 'pacientes:consulta_pacientes' pk=paciente.codigo %}'">{{ paciente.nombre }}</td>
+                                <td onclick="location.href='{% url 'pacientes:consulta_pacientes' pk=paciente.codigo %}'">{{ paciente.email }}</td>
+                                <td onclick="location.href='{% url 'pacientes:consulta_pacientes' pk=paciente.codigo %}'">{{ paciente.sexo }}</td>
+                                <td onclick="location.href='{% url 'pacientes:consulta_pacientes' pk=paciente.codigo %}'">{{ paciente.fecha_nacimiento }}</td>
+                                <td onclick="location.href='{% url 'pacientes:consulta_pacientes' pk=paciente.codigo %}'">{{ paciente.escolaridad }}</td>
+                                <td onclick="location.href='{% url 'pacientes:consulta_pacientes' pk=paciente.codigo %}'">{{ paciente.tipo_sangre }}</td>
+                                <td onclick="location.href='{% url 'pacientes:consulta_pacientes' pk=paciente.codigo %}'">{{ paciente.estado_civil }}</td>
+                            </tr>
+                        </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div>
+                <input type="button" class="btn_lista" value="Agregar Nuevo" onclick="location.href='{% url 'pacientes:registro_pacientes' %}'">
+                <input type="submit" class="btn_lista" value="Eliminar" onclick="location.href='{% url 'pacientes:lista_pacientes' %}'">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock cuerpo %}

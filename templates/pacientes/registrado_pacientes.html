@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Paciente registrado{% endblock title %}
+
+{% block cuerpo %}
+
+<div class="titulo_pagina">
+    <h1>El paciente se ha guardado con exito!</h1>
+</div>
+<input type="button" value="Regresar" onclick="location.href='{% url 'pacientes:lista_pacientes' %}'">
+
+{% endblock %}

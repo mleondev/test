@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}NutriSoft{% endblock title %}</title>
+
+    <link rel="preload" href={% static "css/normalize.css" %} as="style">
+    <link rel="stylesheet" href={% static "css/normalize.css" %}>
+    <link rel="preload" href={% static "css/styles.css" %} as="style">
+    <link href={% static "css/styles.css" %} rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="nav-principal">
+        <nav class="menu">
+            <ul>
+                <li><a onclick="location.href='{% url 'pacientes:inicio' %}'">Inicio</a></li>
+                <li class="catalogs">
+                    <a href="#" class="disable-select">Pacientes</a>
+                    <ul class="barra_desplegable disable-select">
+                        <li><a onclick="location.href='{% url 'pacientes:registro_pacientes' %}'">Agregar Paciente</a></li>
+                        <li><a onclick="location.href='{% url 'pacientes:lista_pacientes' %}'">Lista de Pacientes</a></li>
+                    </ul>
+                </li>
+                <li class="process disable-select"><a href="#">Calculos</a>
+                    <ul class="barra_desplegable disable-select">
+                        <li><a href="#">Elemento 1</a></li>
+                        <li><a href="#">Elemento 2</a></li>
+                    </ul>
+                </li>
+                <li class="queries disable-select"><a href="#">Otro Elemento</a></li>
+                <li class="queries disable-select"><a href="#">Otro Elemento</a></li>
+                <li class="queries disable-select"><a href="#">Otro Elemento</a></li>
+            </ul>
+        </nav>
+
+        <div class="nomin"></div>
+        
+    </header> 
+
+
+    {% block cuerpo %} {% endblock cuerpo %}
+
+    <div class="caja_img_fondo">
+        <img src= {% static 'img/GSMO2.png' %} class="img_fondo">
+    </div>
+
+    <footer>
+        <p>© NutriSoft 2022. Todos los Derechos Reservados.</p>
+    </footer>
+    
+</body>
+</html>

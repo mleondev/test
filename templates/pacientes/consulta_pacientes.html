@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Lista de Pacientes | NutriSoft {% endblock title %}
+
+{% block cuerpo %}
+
+
+<div class="lista_all">
+    <div class="titulo_pagina">
+        <h1>Registrar Paciente</h1>
+    </div>
+    
+    <div class="btn_registro">
+        <input type="button" value="Regresar" onclick="location.href='{% url 'pacientes:lista_pacientes' %}'">
+        <input type="button" value="Regresar al Inicio" onclick="location.href='{% url 'pacientes:inicio' %}'">
+    </div>
+    
+    <div  class="contenedorRegistro_empleados">
+        <div class="panel panel_default">
+            <form method="POST">{% csrf_token %}
+                <div class="panel_default">
+                    <div class="div_heading">
+                        <h3>
+                            Datos del Paciente
+                        </h3>
+                    </div>
+                </div>
+                <div class="div_body">
+                    <div class="colum_input">
+                        <label>Codigo:</label>
+                        <input type="number" value="{{object.codigo}}" class="input_registrar" disabled>
+                    </div>
+                    <div class="colum_input">
+                        <label>Nombre:</label>
+                        <input type="text" value="{{object.nombre}}" class="input_registrar" disabled>
+                    </div>
+                    <div class="colum_input">
+                        <label>Email:</label>
+                        <input type="text" value="{{object.email}}" class="input_registrar" disabled>
+                    </div>
+                </div>
+                <div class="div_body">
+                    <div class="colum_input">
+                        <label>Sexo:</label>
+                        <input type="text" value="{{object.sexo}}" class="input_registrar" disabled>
+                    </div>
+                    <div class="colum_input">
+                        <label>Fecha de Nacimiento:</label>
+                        <input type="text" value="{{object.fecha_nacimiento}}" class="input_registrar" disabled>
+                    </div>
+                    <div class="colum_input">
+                        <label>Escolaridad:</label>
+                        <input type="text" value="{{object.escolaridad}}" class="input_registrar" disabled>
+                    </div>
+                </div>
+                <div class="div_body">
+                    <div class="colum_input">
+                        <label>Tipo de Sangre:</label>
+                        <input type="text" value="{{object.tipo_sangre}}" class="input_registrar" disabled>
+                    </div>
+                    <div class="colum_input">
+                        <label>Estado Civil:</label>
+                        <input type="text" value="{{object.estado_civil}}" class="input_registrar" disabled>
+                    </div>
+                </div>
+                <div class="colum_input">
+                    <button class="btn_guardar" type="button" disabled>Editar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock cuerpo %}

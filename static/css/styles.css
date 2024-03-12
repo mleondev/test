@@ -1,0 +1,236 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --gris:#cfcfcf;
+    --primario: #2e9200;
+    --primario_claro:#e3f14e;
+    --primario_oscuro: #0F4C75;
+    --secundario: #4A1100;
+    --secundario_claro: #b6e495;
+    --terciario: #D6EFC7;
+    --cuarto: #b6ebc7;
+    --eliminar: #4b1735;
+    --guardar: #00623c;
+    --editar: #623d00;
+}
+
+* {
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px; /* 1rem = 10px */
+    text-decoration: none;
+    background-color: var(--cuarto);
+}
+
+footer {
+    position: fixed;
+    text-align: center;
+    top: 95%;
+    width: 100%;
+}
+
+.caja_img_fondo img{
+    position: fixed;
+    top: 10px;
+    left: 1%;
+    width: 100%;
+    height: 100%;
+    z-index: -1000;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); 
+    object-fit: cover;
+}
+
+.titulo_pagina {
+    padding-top: 1.5rem;
+    margin-left: 20rem;
+    font-size: medium;
+    position: relative;
+}
+
+
+
+/* *************************** Barra lateral *********************************** */
+
+
+.sidebar_grid {
+    display: flex;
+}
+.sidebar_grid > ul {
+    background-color: #000c08;
+    color: white;
+    position: fixed;
+    padding-bottom: 100%;
+}
+.li_lista {
+    list-style: none;
+    padding: 10px 30px;
+    border-bottom: 2px solid rgba(183, 183, 183, 0.3);
+    text-align: center;
+    cursor: pointer;
+}
+.logo {
+    padding: 1.2rem;
+    list-style: none;
+    margin-bottom: -.2rem;
+    border-bottom: 2px solid rgba(183, 183, 183, 0.3);
+}
+.logo > li {
+    margin-bottom: 1rem;
+}
+.logo_inicio {
+    margin-left: 3rem;
+}
+
+.sidebar_grid > ul :hover {
+    background-color: var(--primario_claro)
+}
+
+
+/* *********************************** Buscar Set y Botones *********************************************** */
+
+.buscar_set_input {
+    width: 100%;
+}
+
+.buscar_set_input > form > div > input {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.btn_lista {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: .5rem;
+}
+
+.btn_registro {
+    margin-bottom: .4rem;
+    margin-left: 8.5rem;
+}
+.btn_registro > input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn_guardar {
+    margin-left: 40rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn_buscar {
+    cursor: pointer;
+}
+
+  /* *********************************** Listas y Tablas *********************************************** */
+
+.lista_all {
+    margin-left: 210px;
+}
+
+.overflow{
+    overflow: auto;
+    height: 400px;
+    width: 145%;
+    scroll-behavior: smooth;
+}
+.overflow::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+.overflow::-webkit-scrollbar-thumb {
+	background: var(--primario);
+	border-radius: 5px;
+}
+
+.tabla_listas_ch {
+    width: 99%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    overflow-x: scroll visible;
+    min-width: max-content;
+}
+.tabla_listas_ch tbody tr {
+    color: #212121;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    height: 30px;
+}
+
+.tabla_listas_ch tbody tr:hover{
+    background-color: var(--primario_claro);
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+.tabla_listas_ch tbody tr td{
+    text-align: center;
+    font-size: 10px;
+}
+
+.overflow > table > thead > tr {
+    background-color: var(--primario);
+    height: 30px;
+    font-size: 11px;
+}
+
+
+/* *********************** Registro y set de inputs ************************************** */
+
+
+.contenedorRegistro_empleados {
+    width: 100%;
+    margin-left: 15%;
+}
+.panel {
+    padding: 1rem 0;
+    background-color: #f5fafd;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.panel_default {
+    border: #ddd;
+}
+.panel_default > .div_heading {
+    color: #fff;
+    background-color: var(--primario);
+    margin-top: -1rem;
+    box-shadow: 0 0 2px 0 #292a2b9d;
+}
+.div_heading {
+    padding: 10px 15px;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.div_body {
+    display: flex;
+    padding: 5px 1rem;
+}
+
+.grupo_formulario {
+    margin-bottom: 15px;;
+}
+.colum_input{
+    width: 20%;
+    margin-left: 8%;
+ }
+ .input_registrar {
+    margin-top: 3px;
+    padding: 2px 10px;
+    border-radius: 5px;
+ }
+ .colum_input label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 900;
+    font-size: 12px;
+    padding-left: 5px;
+}

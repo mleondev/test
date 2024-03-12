@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Registro del Paciente | NutriSoft {% endblock title %}
+
+{% block cuerpo %}
+
+<div class="lista_all">
+    <div class="titulo_pagina">
+        <h1>Registrar Paciente</h1>
+    </div>
+    
+    <div class="btn_registro">
+        <input type="button" value="Regresar" onclick="location.href='{% url 'pacientes:lista_pacientes' %}'">
+        <input type="button" value="Regresar al Inicio" onclick="location.href='{% url 'pacientes:inicio' %}'">
+    </div>
+    
+    <div class="contenedorRegistro_empleados">
+        <div class="panel panel_default">
+            <form method="POST">{% csrf_token %}
+                <div class="panel_default">
+                    <div class="div_heading">
+                        <h3>
+                            Datos del Paciente
+                        </h3>
+                    </div>
+                </div>
+                <div class="div_body">
+                    <div class="colum_input">
+                        <label>Codigo:
+                            {{form.codigo}}
+                        </label>
+                    </div>
+                    <div class="colum_input">
+                        <label>Nombre:
+                            {{form.nombre}}
+                        </label>
+                    </div>
+                    <div class="colum_input">
+                        <label>Email:
+                            {{form.email}}
+                        </label>
+                    </div>
+                </div>
+                <div class="div_body">
+                    <div class="colum_input">
+                        <label>Sexo:
+                            {{form.sexo}}
+                        </label>
+                    </div>
+                    <div class="colum_input">
+                        <label>Fecha de Nacimiento:
+                            {{form.fecha_nacimiento}}
+                        </label>
+                    </div>
+                    <div class="colum_input">
+                        <label>Escolaridad:
+                            {{form.escolaridad}}
+                        </label>
+                    </div>
+                </div>
+                <div class="div_body">
+                    <div class="colum_input">
+                        <label>Tipo de Sangre:
+                            {{form.tipo_sangre}}
+                        </label>
+                    </div>
+                    <div class="colum_input">
+                        <label>Estado Civil:
+                            {{form.estado_civil}}
+                        </label>
+                    </div>
+                </div>
+                <div class="colum_input">
+                    <button class="btn_guardar" type="submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock cuerpo %}

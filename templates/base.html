@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}NutriSoft{% endblock title %}</title>
+
+    <link rel="preload" href={% static "css/normalize.css" %} as="style">
+    <link rel="stylesheet" href={% static "css/normalize.css" %}>
+    <link rel="preload" href={% static "css/styles.css" %} as="style">
+    <link href={% static "css/styles.css" %} rel="stylesheet">
+
+</head>
+
+<body>
+      
+  <div class="sidebar_grid">
+    <ul>
+      <div class="logo" onclick="location.href='{% url 'pacientes:inicio' %}'"><li><img src={% static "img/logo.png" %} alt="Logo NutriSoft"></li><a class="logo_inicio">Inicio</a></div>
+      <div class="li_lista" onclick="location.href='{% url 'pacientes:lista_pacientes' %}'"><li><a>Pacientes</a></li></div>
+      <div class="li_lista" onclick="location.href='{% url 'pacientes:registro_pacientes' %}'">Registrar</div>
+      <div class="li_lista" onclick="location.href='#'">Cálculos</div>
+      <div class="li_lista" onclick="location.href='#'">Mis Dietas</div>
+      <div class="li_lista" onclick="location.href='#'">Salir</div>
+    </ul>
+
+    {% block cuerpo %} {% endblock cuerpo %}
+
+  </div>
+
+  
+  <div class="caja_img_fondo">
+      <img src= {% static 'img/nutrisoft.png' %} class="img_fondo">
+  </div>
+
+  <footer>
+      <p>© eNusystem 2022 | Software de Nutrición. Todos los Derechos Reservados.</p>
+  </footer>
+
+  </body>
